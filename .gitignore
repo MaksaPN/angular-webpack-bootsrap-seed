@@ -83,7 +83,7 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
-# TODO: Comment the next line if you want to checkin your web deploy settings 
+# TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
@@ -165,8 +165,3 @@ FakesAssemblies/
 
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
-
-Realty.Api/wwwroot/uploads/amenity/
-Realty.Api/wwwroot/uploads/property/
-Realty.Api/wwwroot/uploads/resource/
-Realty.Api/wwwroot/uploads/category/
