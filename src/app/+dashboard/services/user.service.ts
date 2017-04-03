@@ -13,7 +13,7 @@ export class UserService extends BaseService {
     super(http);
   }
 
-  get(id: Number): Observable<User> {
+  get(id: number): Observable<User> {
     return this.http
       .get(this.apiUrl + 'users/' + id)
       .map((response: Response) => response.json() as User)

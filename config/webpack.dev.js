@@ -1,10 +1,5 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const extractSass = new ExtractTextPlugin({
-  filename: "[name].css"
-});
 
 const helpers = require('./helpers');
 const commonConfig = require('./webpack.common.js');
@@ -18,21 +13,8 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   module: {
-    rules: [{
-      test: /\.scss|\.sass$/,
-      use: extractSass.extract({
-        loader: [
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
-        ],
-        fallback: 'style-loader'
-      })
-    }]
+    rules: []
   },
-
-  plugins: [
-    extractSass
-  ],
 
   devServer: {
     historyApiFallback: true,

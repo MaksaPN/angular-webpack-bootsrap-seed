@@ -18,7 +18,7 @@ export class HttpService extends Http {
 
   request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
     let token = localStorage.getItem('auth_token');
-    var requestUrl = typeof url === 'string' ? url : url.url;
+    let requestUrl = typeof url === 'string' ? url : url.url;
 
     if (token && requestUrl.indexOf(Config.apiUrl) > -1) {
       if (typeof url === 'string') {
@@ -52,8 +52,8 @@ export class HttpService extends Http {
   }
 
   logError(response: Response) {
-    if (Env.current == "Development") {
-      console.log("Auth error:");
+    if (Env.current == 'Development') {
+      console.log('Auth error:');
       console.error(response);
     }
   }

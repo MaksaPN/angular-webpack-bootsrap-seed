@@ -3,7 +3,7 @@ export class UserLoginModel {
   password: string;
 }
 
-export interface UserShortModel {
+export class UserShortModel {
   id: number;
   email: string;
   password: string;
@@ -12,7 +12,7 @@ export interface UserShortModel {
   role: string;
 }
 
-export interface LoginModel {
+export class LoginModel {
   user: UserShortModel;
   token: string;
 }

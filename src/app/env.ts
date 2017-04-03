@@ -1,3 +1,3 @@
 export const Env = {
-  current: "Development"
+  current: 'Development'
 };

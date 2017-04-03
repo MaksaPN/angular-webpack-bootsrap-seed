@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 import { UserLoginModel } from '../shared/models/login';
 import { LoginService } from '../shared/services/login.service';
 
-import './login.component.scss'
-
 @Component({
   selector: 'login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
 

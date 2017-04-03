@@ -5,11 +5,10 @@ import { Router } from '@angular/router';
 import { LoginService } from './../shared/services/login.service';
 import { UserService } from './services/user.service';
 
-import './dashboard.component.scss'
-
 @Component({
   selector: 'dashboard',
-  templateUrl: 'dashboard.component.html'
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
 

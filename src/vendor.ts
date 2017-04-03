@@ -11,4 +11,3 @@ import 'rxjs';
 
 // Other vendors
 import 'jquery';
-import 'bootstrap/dist/js/bootstrap.min.js';

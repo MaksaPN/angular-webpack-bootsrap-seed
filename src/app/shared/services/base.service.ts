@@ -18,11 +18,11 @@ export class BaseService {
       const body = error.json() || '';
       const errorText = body.error || JSON.stringify(body);
       errorMessage = errorText;
-      if (Env.current == "Development") console.error(`${error.status} - ${error.statusText || ''} ${errorText}`);
+      if (Env.current == 'Development') console.error(`${error.status} - ${error.statusText || ''} ${errorText}`);
     }
     else {
       errorMessage = error.message ? error.message : error.toString();
-      if (Env.current == "Development") console.error(errorMessage);
+      if (Env.current == 'Development') console.error(errorMessage);
     }
 
     // toaster.error(errorMessage);

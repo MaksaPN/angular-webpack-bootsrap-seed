@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -19,11 +18,23 @@ module.exports = {
   },
 
   output: {
-    publicPath: 'http://localhost:8080/'
+    publicPath: 'http://localhost:8011/'
   },
 
   module: {
     rules: [
+      {
+        test: /\.ts$/,
+        enforce: 'pre',
+        use: [
+          {
+            loader: 'tslint-loader',
+            options: {
+              emitErrors: false
+            }
+          }
+        ],
+      },
       {
         test: /\.ts$/,
         use: ['awesome-typescript-loader', 'angular2-template-loader', 'angular2-router-loader']
@@ -39,13 +50,28 @@ module.exports = {
       {
         test: /bootstrap\/dist\/js\/umd\//,
         use: 'imports-loader?jQuery=jquery'
+      },
+      {
+        test: /\.scss|\.sass$/,
+        use: [
+          'raw-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options:
+            {
+              includePaths: ['node_modules/bootstrap-sass/assets/stylesheets']
+            }
+          }
+        ]
       }
     ]
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
+      favicon: 'favicon.ico'
     }),
     new webpack.ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
@@ -55,7 +81,7 @@ module.exports = {
       name: ['app', 'vendor', 'polyfills']
     }),
     new OpenBrowserPlugin({
-      url: 'http://localhost:8080'
+      url: 'http://localhost:8011'
     }),
     new CopyWebpackPlugin([
       { from: 'src/assets/', to: 'assets' }

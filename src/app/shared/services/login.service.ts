@@ -14,12 +14,12 @@ export class LoginService extends BaseService {
   }
 
   isUserLoggedIn(): boolean {
-    var isUserLoggedIn = !!localStorage.getItem('auth_token');
+    let isUserLoggedIn = !!localStorage.getItem('auth_token');
     return isUserLoggedIn;
   }
 
   getLoggedUser(): UserShortModel {
-    var currentUser = localStorage.getItem('currentUser');
+    let currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       return JSON.parse(currentUser);
     }
@@ -31,8 +31,8 @@ export class LoginService extends BaseService {
   }
 
   setLoggedUser(userModel: LoginModel): void {
-    localStorage.setItem("currentUser", JSON.stringify(userModel.user));
-    localStorage.setItem("auth_token", JSON.stringify(userModel.token));
+    localStorage.setItem('currentUser', JSON.stringify(userModel.user));
+    localStorage.setItem('auth_token', JSON.stringify(userModel.token));
   }
 
   login(user: UserLoginModel): Observable<LoginModel> {
