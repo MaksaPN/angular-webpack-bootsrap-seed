@@ -74,8 +74,9 @@ module.exports = {
       favicon: 'favicon.ico'
     }),
     new webpack.ContextReplacementPlugin(
-      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-      __dirname
+      /angular(\\|\/)core(\\|\/)@angular/,
+      helpers.root('src'),
+      { }
     ),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills']

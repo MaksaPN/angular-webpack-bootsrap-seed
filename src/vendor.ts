@@ -10,4 +10,3 @@ import '@angular/router';
 import 'rxjs';
 
 // Other vendors
-import 'jquery';
