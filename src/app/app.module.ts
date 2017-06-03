@@ -6,8 +6,10 @@ import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 
-import { LoggedUserCanActivate, AdminCanActivate } from './shared/activators/all';
-import { BaseService, LoginService, HttpService } from './shared/services/all';
+import { HttpService } from './shared/services/http.service';
+import { LoginService } from './shared/services/login.service';
+import { AdminCanActivate } from './shared/activators/admin.activate';
+import { LoggedUserCanActivate } from './shared/activators/logged-user.activate';
 
 import { LoginModule } from './login/login.module';
 

@@ -6,7 +6,7 @@ export class UserLoginModel {
 export class UserShortModel {
   id: number;
   email: string;
-  password: string;
+  password?: string;
   firstName: string;
   lastName: string;
   role: string;

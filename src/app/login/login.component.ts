@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UserLoginModel } from '../shared/models/login';
+import { LoginModel, UserLoginModel } from '../shared/models/login';
 import { LoginService } from '../shared/services/login.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     if (this.loginService.isUserLoggedIn()) {
       this.router.navigate(['dashboard']);
     }
-  };
+  }
 
   login(): void {
     this.loginService.login(this.user).subscribe(
@@ -33,5 +33,11 @@ export class LoginComponent implements OnInit {
       error => {
         this.error = error;
       });
+  }
+
+  loginTest(): void {
+    let testUser: LoginModel = { user: { id: 1, email: 'test@test.test', firstName: 'test', lastName: 'test', role: 'admin' }, token: 'testtest' };
+    this.loginService.setLoggedUser(testUser);
+    this.router.navigate(['dashboard']);
   }
 }
