@@ -13,5 +13,13 @@
       "es2017",
       "dom"
     ]
-  }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/main-aot.ts",
+    "src/uni",
+    "src/dist"
+  ]
 }

@@ -189,6 +189,7 @@ npm-debug.log
 
 # Dist #
 /dist
+/src/dist
 /public/__build__/
 /src/*/__build__/
 /__build__/**

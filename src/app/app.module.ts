@@ -15,7 +15,9 @@ import { LoginModule } from './login/login.module';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({
+      appId: 'seed-universal'
+    }),
     HttpModule,
     AppRoutingModule,
     LoginModule
@@ -27,12 +29,14 @@ import { LoginModule } from './login/login.module';
     LoginService,
     {
       provide: Http,
-      useFactory: (backend: XHRBackend, options: RequestOptions, router: Router) => {
-        return new HttpService(backend, options, router);
-      },
+      useFactory: customHttpFactory,
       deps: [XHRBackend, RequestOptions, Router]
     },
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
+
+export function customHttpFactory(backend: XHRBackend, options: RequestOptions, router: Router) {
+  return new HttpService(backend, options, router);
+}
